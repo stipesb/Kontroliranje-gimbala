@@ -79,7 +79,7 @@ namespace Kontroliranje_gimbala
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Select_port_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,11 +107,12 @@ namespace Kontroliranje_gimbala
 
         private void Zapocni_Click(object sender, EventArgs e)
         {
-
+            
            
 
             Serijska_komunikacija(Select_port.Text);
-         
+
+            timer1.Start();         
         }
 
         private void lijevo_Click(object sender, EventArgs e)
@@ -145,6 +146,49 @@ namespace Kontroliranje_gimbala
             Posalji(e.KeyChar.ToString());
 
             textBox1.Text = e.KeyChar.ToString();
+        }
+
+        private void Form1_MouseHover(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+         
+
+            int x = Cursor.Position.X - 960;
+            int y = 540 - Cursor.Position.Y;
+            label1.Text = "X = " + x +  "Y = " + y ;
+
+            String podatak ="<" + x.ToString() + " " + y.ToString() + ">";
+
+            Posalji(podatak);
+            textBox1.Text = podatak;
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+        
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics line = e.Graphics;
+            Pen p = new Pen(Color.Black, 3);
+            line.DrawLine(p, 960, 0, 960, 1080);
+            line.DrawLine(p, 0, 518, 1920, 518);
         }
     }
 }
