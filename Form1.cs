@@ -168,8 +168,8 @@ namespace Kontroliranje_gimbala
 
             String podatak ="<" + x.ToString() + " " + y.ToString() + ">";
 
-            Posalji(podatak);
-            textBox1.Text = podatak;
+            Posalji(podatak);// mozda treba pokusati sa slanjem integera
+            textBox1.Text = podatak; 
 
         }
 
