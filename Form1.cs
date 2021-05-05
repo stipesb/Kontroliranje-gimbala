@@ -46,7 +46,7 @@ namespace Kontroliranje_gimbala
         {
             Port = new System.IO.Ports.SerialPort();
             Port.PortName = port;
-            Port.BaudRate = 9600;
+            Port.BaudRate = 115200;
             Port.ReadTimeout = 1;
 
 
